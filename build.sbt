@@ -1,40 +1,21 @@
-import Settings._
 import Dependencies._
 
-lazy val common = (project in file("common"))
+lazy val moho = (project in file("."))
   .enablePlugins(AutomateHeaderPlugin)
-  .dependsOn(proto)
-  .settings(
-    basicSettings,
-    libraryDependencies ++= dependency4Common
-  )
-
-lazy val rest = (project in file("rest"))
-  .enablePlugins(AutomateHeaderPlugin)
-  .dependsOn(common)
   .enablePlugins(JavaServerAppPackaging)
   .settings(
-    basicSettings,
-    libraryDependencies ++= dependency4Rest
-  )
-
-lazy val rpc = (project in file("rpc"))
-  .enablePlugins(AutomateHeaderPlugin)
-  .dependsOn(common)
-  .enablePlugins(JavaAppPackaging)
-  .settings(
-    basicSettings,
-    libraryDependencies ++= dependency4Rpc
-  )
-
-lazy val proto = (project in file("proto"))
-  .settings(
-    libraryDependencies ++= scalapbDependency,
+    organization := "com.maogogo",
+    version := "0.0.1-SNAPSHOT",
+    scalaVersion := "2.12.7",
+    organizationName := "Maogogo Workshop",
+    scalacOptions := Seq("-deprecation",
+      "-feature",
+      "-language:implicitConversions",
+      "-language:postfixOps"),
+    startYear := Some(2018),
+    licenses += ("Apache-2.0", new URL("https://www.apache.org/licenses/LICENSE-2.0.txt")),
     PB.targets in Compile := Seq(
       scalapb.gen() -> (sourceManaged in Compile).value
-    )
+    ),
+    libraryDependencies ++= commonDependency ++ guiceDependency ++ akkaDependency ++ driverDependency ++ scalapbDependency
   )
-
-lazy val all = (project in file("."))
-  .aggregate(common, rest, rpc, proto)
-  .withId("moho")
