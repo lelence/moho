@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Maogogo Workshop
+ * Copyright 2018 maogogo organization
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,15 @@
  * limitations under the License.
  */
 
-package org.maogogo.moho
+package org.maogogo.moho.actors
 
-trait Application {
+import akka.actor.Actor
+import org.slf4s.Logging
+
+class RootingActor extends Actor with Logging {
+
+  override def receive: Receive = {
+    case _ ⇒
+  }
 
 }
