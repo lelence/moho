@@ -75,10 +75,4 @@ object Dependencies {
     "com.thesamet.scalapb" %% "scalapb-runtime" % scalapb.compiler.Version.scalapbVersion % "protobuf"
   )
 
-  //  lazy val dependency4Common = commonDependency ++ guiceDependency ++ akkaDependency ++ driverDependency ++ testDependency
-  //
-  //  lazy val dependency4Rest = dependency4Common ++ httpDependency ++ json4sDependency
-  //
-  //  lazy val dependency4Rpc = dependency4Common ++ httpDependency ++ json4sDependency
-
 }

@@ -16,6 +16,20 @@
 
 package org.maogogo.moho
 
-trait Application {
+import akka.actor.ActorSystem
+import akka.stream.ActorMaterializer
+import com.google.inject._
+import com.typesafe.config.{ Config, ConfigFactory }
+import com.typesafe.scalalogging.LazyLogging
+import net.codingwell.scalaguice.ScalaModule
+import org.maogogo.moho.http.RestHttpServer
+
+trait ServicesModule extends AbstractModule with ScalaModule {
+
+  override def configure(): Unit = {
+    bind[RestHttpServer]
+  }
 
 }
+
+object ServicesModule extends ServicesModule

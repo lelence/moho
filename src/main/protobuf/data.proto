@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.maogogo.moho.protobuf";
+package org.maogogo.moho.protobuf;
+
+import "google/protobuf/wrappers.proto";
+
+message ApplicationSettings {
+    int32 port = 1;
+    google.protobuf.StringValue file = 2;
+    repeated string seeds = 3;
+    repeated string roles = 4;
+}

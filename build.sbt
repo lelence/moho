@@ -17,5 +17,7 @@ lazy val moho = (project in file("."))
     PB.targets in Compile := Seq(
       scalapb.gen() -> (sourceManaged in Compile).value
     ),
-    libraryDependencies ++= commonDependency ++ guiceDependency ++ akkaDependency ++ driverDependency ++ scalapbDependency
+    libraryDependencies ++= commonDependency ++ guiceDependency ++
+      akkaDependency ++ driverDependency ++ scalapbDependency ++
+      httpDependency ++ json4sDependency
   )
