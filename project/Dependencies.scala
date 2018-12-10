@@ -17,10 +17,11 @@ object Dependencies {
   ) map (_ % Test)
 
   lazy val commonDependency = Seq(
-    "org.slf4j" % "slf4j-api" % slf4jVersion,
+//    "org.slf4j" % "slf4j-api" % slf4jVersion,
+    "org.slf4s" %% "slf4s-api" % "1.7.25",
     "ch.qos.logback" % "logback-core" % logbackVersion,
     "ch.qos.logback" % "logback-classic" % logbackVersion,
-    "com.typesafe.scala-logging" %% "scala-logging" % "3.9.0",
+    // "com.typesafe.scala-logging" %% "scala-logging" % "3.9.0",
 
     "com.github.scopt" %% "scopt" % "3.7.0"
 

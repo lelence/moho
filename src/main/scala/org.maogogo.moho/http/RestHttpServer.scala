@@ -18,16 +18,16 @@ package org.maogogo.moho.http
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
-import akka.stream.ActorMaterializer
-import com.google.inject.Inject
-import com.typesafe.scalalogging.LazyLogging
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
+import akka.stream.ActorMaterializer
+import com.google.inject.Inject
+import org.slf4s.Logging
 
 class RestHttpServer @Inject() (
   implicit
   system: ActorSystem,
-  mat: ActorMaterializer) extends LazyLogging {
+  mat: ActorMaterializer) extends Logging {
 
   import system.dispatcher
 
@@ -42,10 +42,10 @@ class RestHttpServer @Inject() (
   val bind = Http().bindAndHandle(route, interface = "0.0.0.0", port = 9000)
 
   bind.onComplete {
-    case scala.util.Success(binding) ⇒ logger.info(s"http server started! ${
+    case scala.util.Success(binding) ⇒ log.info(s"http server started! ${
       binding.localAddress
     }")
-    case scala.util.Failure(ex) ⇒ logger.error("http server start failed!", ex)
+    case scala.util.Failure(ex) ⇒ log.error("http server start failed!", ex)
   }
 
 }
