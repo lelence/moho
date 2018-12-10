@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Maogogo Workshop
+ * Copyright 2018 maogogo organization
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,7 @@ object Main extends App {
   }.parse(args, ApplicationSettings(0, None, Seq.empty, Seq.empty)) match {
     case Some(settings) ⇒
 
-      val injector = Guice.createInjector(SysAndConfigModule(), ServicesModule)
+      val injector = Guice.createInjector(ServicesModule())
 
       import net.codingwell.scalaguice.InjectorExtensions._
 

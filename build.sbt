@@ -7,7 +7,7 @@ lazy val moho = (project in file("."))
     organization := "com.maogogo",
     version := "0.0.1-SNAPSHOT",
     scalaVersion := "2.12.7",
-    organizationName := "Maogogo Workshop",
+    organizationName := "maogogo organization",
     scalacOptions := Seq("-deprecation",
       "-feature",
       "-language:implicitConversions",
